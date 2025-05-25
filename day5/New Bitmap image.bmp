@@ -1,0 +1,10 @@
+items = []
+
+
+while True:
+    entry = input('Enter item (q to quit): ')
+    if entry.lower() == 'q':
+        break
+    items.append(entry)
+
+print(items)
