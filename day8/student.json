@@ -1,0 +1,74 @@
+[
+    {
+      "id": 2,
+      "name": "Maria Santos",
+      "age": 17,
+      "grade": "11th",
+      "student_id": "S002",
+      "subjects": ["Math", "Science", "English"]
+    },
+    {
+      "id": 3,
+      "name": "Carlos Mendoza",
+      "age": 18,
+      "grade": "12th",
+      "student_id": "S003",
+      "subjects": ["History", "Math", "English"]
+    },
+    {
+      "id": 4,
+      "name": "Ana Reyes",
+      "age": 16,
+      "grade": "10th",
+      "student_id": "S004",
+      "subjects": ["Science", "Math", "English"]
+    },
+    {
+      "id": 5,
+      "name": "Pedro Gomez",
+      "age": 17,
+      "grade": "11th",
+      "student_id": "S005",
+      "subjects": ["Science", "History", "English"]
+    },
+    {
+      "id": 6,
+      "name": "Luis Cruz",
+      "age": 18,
+      "grade": "12th",
+      "student_id": "S006",
+      "subjects": ["Math", "English", "Computer Science"]
+    },
+    {
+      "id": 7,
+      "name": "Isabella Flores",
+      "age": 16,
+      "grade": "10th",
+      "student_id": "S007",
+      "subjects": ["Math", "Science", "English"]
+    },
+    {
+      "id": 8,
+      "name": "Javier Torres",
+      "age": 17,
+      "grade": "11th",
+      "student_id": "S008",
+      "subjects": ["English", "Computer Science", "History"]
+    },
+    {
+      "id": 9,
+      "name": "Sofia Ramirez",
+      "age": 18,
+      "grade": "12th",
+      "student_id": "S009",
+      "subjects": ["Science", "Math", "English"]
+    },
+    {
+      "id": 10,
+      "name": "Miguel Hernandez",
+      "age": 17,
+      "grade": "11th",
+      "student_id": "S010",
+      "subjects": ["Science", "Math", "Physical Education"]
+    }
+  ]
