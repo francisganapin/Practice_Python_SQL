@@ -1,0 +1,12 @@
+{
+    "app_name":"MyCoolApp",
+    "debug":true,
+    "database":{
+        "host":"localhost",
+        "port":3306,
+        "user":"admin",
+        "password":"secret",
+        "dbname":"my_database"
+    },
+    "features":["login","register","email_notifications"]
+}
