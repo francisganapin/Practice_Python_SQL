@@ -1,0 +1,11 @@
+Name,Salary
+Alice,52000
+Bob,48000
+Charlie,59000
+David,47000
+Eve,61000
+Frank,43000
+Grace,70000
+Heidi,53000
+Ivan,66000
+Judy,50000
