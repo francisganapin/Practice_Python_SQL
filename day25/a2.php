@@ -9,9 +9,4 @@ if ($stock > 0){
     echo 'Out of stock.';
 }
 
-
-
-
-
-
 ?>
