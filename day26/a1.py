@@ -2,7 +2,7 @@ error_counter = {}
 
 
 while True:
-    user_input = input('Enter error(or'exit' to end): ')
+    user_input = input("Enter error(or'exit' to end): ")
 
     if user_input.lower() == 'exit':
         break
