@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h1>Item</h1>
+        <button onclick="loadItems()">Load Items</button>
+        <ul id="list"></ul>
+
+
+        <script>
+            async function loadItems(){
+                const res = await fetch("http://127.0.0.1:8000/items");
+                const data = await res.json();
+                console(data)
+
+                document.getElementById('list').innerHTML = 
+                    data.map(i => `<li>${i.name} - ${i.price} </li>`).join("");
+            }
+        </script>
+
+    </body>
+</html>
