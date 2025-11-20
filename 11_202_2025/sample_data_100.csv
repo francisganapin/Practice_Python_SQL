@@ -1,0 +1,101 @@
+date,city,product,quantity,amount
+2025-01-01,New York,Widget A,5,125.00
+2025-01-02,Los Angeles,Widget B,3,90.00
+2025-01-03,Chicago,Widget A,2,50.00
+2025-01-04,New York,Widget C,7,210.00
+2025-01-05,Los Angeles,Widget A,1,25.00
+2025-01-06,Chicago,Widget B,4,120.00
+2025-01-07,New York,Widget B,6,180.00
+2025-01-08,Los Angeles,Widget C,2,60.00
+2025-01-09,Chicago,Widget C,3,90.00
+2025-01-10,New York,Widget A,8,200.00
+2025-01-11,Houston,Widget D,4,160.00
+2025-01-12,Phoenix,Widget B,5,150.00
+2025-01-13,New York,Widget D,2,80.00
+2025-01-14,Los Angeles,Widget A,6,150.00
+2025-01-15,Chicago,Widget D,3,120.00
+2025-01-16,Houston,Widget C,7,245.00
+2025-01-17,Phoenix,Widget A,1,25.00
+2025-01-18,New York,Widget B,9,270.00
+2025-01-19,Los Angeles,Widget D,2,80.00
+2025-01-20,Chicago,Widget A,5,125.00
+2025-01-21,Houston,Widget B,3,90.00
+2025-01-22,Phoenix,Widget C,4,140.00
+2025-01-23,New York,Widget A,2,50.00
+2025-01-24,Los Angeles,Widget C,6,210.00
+2025-01-25,Chicago,Widget B,8,240.00
+2025-01-26,Houston,Widget A,7,175.00
+2025-01-27,Phoenix,Widget D,5,200.00
+2025-01-28,New York,Widget C,3,105.00
+2025-01-29,Los Angeles,Widget B,4,120.00
+2025-01-30,Chicago,Widget D,1,40.00
+2025-01-31,Houston,Widget C,9,315.00
+2025-02-01,Phoenix,Widget A,2,50.00
+2025-02-02,New York,Widget B,5,150.00
+2025-02-03,Los Angeles,Widget D,6,240.00
+2025-02-04,Chicago,Widget A,3,75.00
+2025-02-05,Houston,Widget B,7,210.00
+2025-02-06,Phoenix,Widget C,2,70.00
+2025-02-07,New York,Widget D,8,320.00
+2025-02-08,Los Angeles,Widget A,1,25.00
+2025-02-09,Chicago,Widget B,4,120.00
+2025-02-10,Houston,Widget C,5,175.00
+2025-02-11,Phoenix,Widget D,3,120.00
+2025-02-12,New York,Widget A,6,150.00
+2025-02-13,Los Angeles,Widget B,2,60.00
+2025-02-14,Chicago,Widget C,7,245.00
+2025-02-15,Houston,Widget D,9,360.00
+2025-02-16,Phoenix,Widget A,4,100.00
+2025-02-17,New York,Widget B,3,90.00
+2025-02-18,Los Angeles,Widget C,5,175.00
+2025-02-19,Chicago,Widget D,2,80.00
+2025-02-20,Houston,Widget A,8,200.00
+2025-02-21,Phoenix,Widget B,6,180.00
+2025-02-22,New York,Widget C,1,35.00
+2025-02-23,Los Angeles,Widget D,4,160.00
+2025-02-24,Chicago,Widget A,7,175.00
+2025-02-25,Houston,Widget B,5,150.00
+2025-02-26,Phoenix,Widget C,3,105.00
+2025-02-27,New York,Widget D,2,80.00
+2025-02-28,Los Angeles,Widget A,9,225.00
+2025-03-01,Chicago,Widget B,4,120.00
+2025-03-02,Houston,Widget C,6,210.00
+2025-03-03,Phoenix,Widget D,1,40.00
+2025-03-04,New York,Widget A,5,125.00
+2025-03-05,Los Angeles,Widget B,3,90.00
+2025-03-06,Chicago,Widget C,7,245.00
+2025-03-07,Houston,Widget D,2,80.00
+2025-03-08,Phoenix,Widget A,4,100.00
+2025-03-09,New York,Widget B,6,180.00
+2025-03-10,Los Angeles,Widget C,1,35.00
+2025-03-11,Chicago,Widget D,8,320.00
+2025-03-12,Houston,Widget A,3,75.00
+2025-03-13,Phoenix,Widget B,5,150.00
+2025-03-14,New York,Widget C,2,70.00
+2025-03-15,Los Angeles,Widget D,7,280.00
+2025-03-16,Chicago,Widget A,9,225.00
+2025-03-17,Houston,Widget B,4,120.00
+2025-03-18,Phoenix,Widget C,6,210.00
+2025-03-19,New York,Widget D,3,120.00
+2025-03-20,Los Angeles,Widget A,5,125.00
+2025-03-21,Chicago,Widget B,2,60.00
+2025-03-22,Houston,Widget C,8,280.00
+2025-03-23,Phoenix,Widget D,1,40.00
+2025-03-24,New York,Widget A,7,175.00
+2025-03-25,Los Angeles,Widget B,4,120.00
+2025-03-26,Chicago,Widget C,9,315.00
+2025-03-27,Houston,Widget D,2,80.00
+2025-03-28,Phoenix,Widget A,6,150.00
+2025-03-29,New York,Widget B,3,90.00
+2025-03-30,Los Angeles,Widget C,5,175.00
+2025-03-31,Chicago,Widget D,7,280.00
+2025-04-01,Houston,Widget A,1,25.00
+2025-04-02,Phoenix,Widget B,8,240.00
+2025-04-03,New York,Widget C,4,140.00
+2025-04-04,Los Angeles,Widget D,6,240.00
+2025-04-05,Chicago,Widget A,2,50.00
+2025-04-06,Houston,Widget B,5,150.00
+2025-04-07,Phoenix,Widget C,3,105.00
+2025-04-08,New York,Widget D,9,360.00
+2025-04-09,Los Angeles,Widget A,2,50.00
+2025-04-10,Chicago,Widget B,7,210.00
