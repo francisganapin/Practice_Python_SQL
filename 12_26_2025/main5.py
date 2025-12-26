@@ -8,4 +8,4 @@ async def get_users():
 
 @app.get('/users')
 async def read_user2():
-    return ['Bean','Elfo']
+    return ['Bean','Elfo','Fermin']
