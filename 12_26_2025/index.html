@@ -1,0 +1,26 @@
+<div id="output"></div>
+
+<div id="output2"></div>
+
+<script>
+    fetch('http://127.0.0.1:5000/api/data')
+        .then(r => r.json())
+        .then(data => {
+            console.log(data)
+            document.getElementById('output').innerText =
+                JSON.stringify(data)
+        })
+        .catch(err => console.error(err))
+</script>
+
+
+<script>
+    fetch('http://127.0.0.1:5000/api/data2')
+        .then(r => r.json())
+        .then(data => {
+            console.log(data)
+            document.getElementById('output2').innerText =
+                JSON.stringify(data)
+        })
+        .catch(err => console.error(err))
+</script>

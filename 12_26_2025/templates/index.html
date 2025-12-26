@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask & Promise Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; }
+        button { padding: 10px 20px; cursor: pointer; }
+        #result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+        .loading { color: blue; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Flask + JavaScript Promise (Fetch)</h1>
+    
+    <button id="loadBtn">Load Data from Flask</button>
+    
+    <div id="result">Click the button to fetch data...</div>
+
+    <script>
+        const btn = document.getElementById('loadBtn');
+        const resultDiv = document.getElementById('result');
+
+        btn.addEventListener('click', () => {
+            resultDiv.innerHTML = '<span class="loading">Loading... (waiting for Flask)</span>';
+            
+            // 1. fetch() returns a Promise
+            fetch('/api/data') 
+                .then(response => {
+                    // 2. First .then() handles the HTTP response
+                    console.log("Response received");
+                    return response.json(); // returns another Promise
+                })
+                .then(data => {
+                    // 3. Second .then() handles the actual data
+                    console.log("Data:", data);
+                    resultDiv.innerHTML = `<span class="success">${data.message}</span>`;
+                })
+                .catch(error => {
+                    // 4. .catch() handles any errors
+                    console.error("Error:", error);
+                    resultDiv.innerHTML = `<span class="error">Error: ${error}</span>`;
+                });
+                
+            console.log("Request sent! (This runs BEFORE the response comes back)");
+        });
+    </script>
+</body>
+</html>
