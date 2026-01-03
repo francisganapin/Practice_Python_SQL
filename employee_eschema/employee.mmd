@@ -1,0 +1,202 @@
+```mermaid
+erDiagram
+    %% ===== CORE EMPLOYEE TABLES =====
+    EMPLOYEE {
+        int employee_id PK
+        string first_name
+        string last_name
+        string email
+        string phone
+        date birth_date
+        date hire_date
+        date termination_date
+        decimal salary
+        string status
+        int department_id FK
+        int manager_id FK
+        int job_id FK
+    }
+
+    DEPARTMENT {
+        int department_id PK
+        string department_name
+        string department_code
+        decimal budget
+        int manager_id FK
+        int location_id FK
+    }
+
+    JOB {
+        int job_id PK
+        string job_title
+        string job_description
+        decimal min_salary
+        decimal max_salary
+        string job_level
+    }
+
+    LOCATION {
+        int location_id PK
+        string city
+        string country
+        string address
+        string postal_code
+    }
+
+    %% ===== SALARY & COMPENSATION =====
+    SALARY_HISTORY {
+        int salary_history_id PK
+        int employee_id FK
+        decimal old_salary
+        decimal new_salary
+        date effective_date
+        string reason
+    }
+
+    BENEFITS {
+        int benefit_id PK
+        string benefit_name
+        string benefit_type
+        decimal cost
+        string description
+    }
+
+    EMPLOYEE_BENEFITS {
+        int emp_benefit_id PK
+        int employee_id FK
+        int benefit_id FK
+        date enrollment_date
+        date end_date
+    }
+
+    %% ===== ATTENDANCE & LEAVE =====
+    ATTENDANCE {
+        int attendance_id PK
+        int employee_id FK
+        date work_date
+        time time_in
+        time time_out
+        string status
+        decimal hours_worked
+    }
+
+    LEAVE_TYPE {
+        int leave_type_id PK
+        string type_name
+        int max_days_per_year
+        boolean is_paid
+    }
+
+    LEAVE_REQUEST {
+        int leave_id PK
+        int employee_id FK
+        int leave_type_id FK
+        date start_date
+        date end_date
+        int total_days
+        string status
+        int approved_by FK
+        date request_date
+    }
+
+    %% ===== PROJECTS & ASSIGNMENTS =====
+    PROJECT {
+        int project_id PK
+        string project_name
+        string description
+        date start_date
+        date end_date
+        decimal budget
+        string status
+        int manager_id FK
+    }
+
+    EMPLOYEE_PROJECT {
+        int assignment_id PK
+        int employee_id FK
+        int project_id FK
+        string role
+        date assigned_date
+        date end_date
+        decimal hours_allocated
+    }
+
+    %% ===== PERFORMANCE & TRAINING =====
+    PERFORMANCE_REVIEW {
+        int review_id PK
+        int employee_id FK
+        int reviewer_id FK
+        date review_date
+        int rating
+        string comments
+        string goals
+        string review_period
+    }
+
+    TRAINING {
+        int training_id PK
+        string training_name
+        string description
+        int duration_hours
+        string training_type
+        decimal cost
+    }
+
+    EMPLOYEE_TRAINING {
+        int emp_training_id PK
+        int employee_id FK
+        int training_id FK
+        date completion_date
+        string status
+        int score
+    }
+
+    %% ===== SKILLS =====
+    SKILL {
+        int skill_id PK
+        string skill_name
+        string category
+    }
+
+    EMPLOYEE_SKILL {
+        int emp_skill_id PK
+        int employee_id FK
+        int skill_id FK
+        string proficiency_level
+        int years_experience
+    }
+
+    %% ===== RELATIONSHIPS =====
+    %% Core relationships
+    DEPARTMENT ||--o{ EMPLOYEE : "has"
+    JOB ||--o{ EMPLOYEE : "assigned_to"
+    LOCATION ||--o{ DEPARTMENT : "houses"
+    EMPLOYEE ||--o{ EMPLOYEE : "manages"
+    
+    %% Salary & Benefits
+    EMPLOYEE ||--o{ SALARY_HISTORY : "has"
+    EMPLOYEE ||--o{ EMPLOYEE_BENEFITS : "enrolled_in"
+    BENEFITS ||--o{ EMPLOYEE_BENEFITS : "provides"
+    
+    %% Attendance & Leave
+    EMPLOYEE ||--o{ ATTENDANCE : "records"
+    EMPLOYEE ||--o{ LEAVE_REQUEST : "submits"
+    LEAVE_TYPE ||--o{ LEAVE_REQUEST : "categorizes"
+    EMPLOYEE ||--o{ LEAVE_REQUEST : "approves"
+    
+    %% Projects
+    EMPLOYEE ||--o{ PROJECT : "manages"
+    EMPLOYEE ||--o{ EMPLOYEE_PROJECT : "assigned_to"
+    PROJECT ||--o{ EMPLOYEE_PROJECT : "includes"
+    
+    %% Performance & Training
+    EMPLOYEE ||--o{ PERFORMANCE_REVIEW : "receives"
+    EMPLOYEE ||--o{ PERFORMANCE_REVIEW : "conducts"
+    EMPLOYEE ||--o{ EMPLOYEE_TRAINING : "completes"
+    TRAINING ||--o{ EMPLOYEE_TRAINING : "has"
+    
+    %% Skills
+    EMPLOYEE ||--o{ EMPLOYEE_SKILL : "possesses"
+    SKILL ||--o{ EMPLOYEE_SKILL : "rated_in"
+
+```
