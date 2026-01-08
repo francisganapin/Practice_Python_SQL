@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\francis\OneDrive\Desktop\Practice\Practice_python\1_9_2026\real.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="979"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,7:mainrentals"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="rentals" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="63"/><column index="2" value="130"/><column index="3" value="67"/><column index="4" value="96"/><column index="5" value="72"/><column index="6" value="69"/><column index="7" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE rentals(
+	
+	rental_id INTEGER PRIMARY KEY,
+	property_name TEXT,
+	location TEXT,
+	monthly_rent REAL,
+	bedrooms INTEGER,
+	furnished TEXT,
+	available TEXT
+
+);
+
+CREATE TABLE tenants (
+	tenant_id INTEGER PRIMARY KEY,
+	name TEXT,
+	rental_id INTEGER,
+	move_in_date TEXT,
+	lease_months INTEGER
+);
+
+-- Insert rental properties
+INSERT INTO rentals VALUES
+(1, 'Sunset Apartments', 'Downtown', 1200, 1, 'Yes', 'No'),
+(2, 'Green Valley Condo', 'Suburbs', 1800, 2, 'No', 'Yes'),
+(3, 'Ocean View Studio', 'Beach', 950, 1, 'Yes', 'Yes'),
+(4, 'Mountain Lodge', 'Mountains', 2500, 3, 'Yes', 'No'),
+(5, 'City Center Loft', 'Downtown', 2200, 2, 'No', 'Yes'),
+(6, 'Riverside Cottage', 'Riverside', 1500, 2, 'Yes', 'No'),
+(7, 'Park Place Apartment', 'Midtown', 1100, 1, 'No', 'Yes'),
+(8, 'Lakeside Villa', 'Lakeside', 3000, 4, 'Yes', 'Yes'),
+(9, 'Urban Studio', 'Downtown', 900, 1, 'No', 'Yes'),
+(10, 'Garden Terrace', 'Suburbs', 1600, 2, 'Yes', 'Yes');
+
+-- Insert tenants
+INSERT INTO tenants VALUES
+(1, 'Alice Johnson', 1, '2025-01-15', 12),
+(2, 'Bob Smith', 4, '2024-11-01', 24),
+(3, 'Carol White', 6, '2025-02-01', 12),
+(4, 'David Brown', 3, '2024-12-15', 6),
+(5, 'Emma Davis', 5, '2025-03-01', 18);
+
+
+-- display all information from the rentals Table
+select * from rentals;
+
+--Show the property name and monthly rent for all available properties (where available = 'Yes')
+SELECT property_name,monthly_rent FROM rentals where available = 'Yes';
+
+--Find all properties located in Downtown. Show property name, location, and monthly rent.
+SELECT property_name, location, monthly_rent 
+from rentals
+WHERE location LIKE '%Downtown%';
+
+--List all properties sorted by monthly rent from highest to lowest. Show property name and monthly rent.
+select property_name,monthly_rent from rentals
+ORDER BY monthly_rent DESC;
+
+--How many rental properties are in each location? Show location and count.
+SELECT count(location) as location_count, location
+from rentals
+group by location
+order by location_count desc;
+
+--Calculate the average monthly rent across all properties.
+select avg(monthly_rent) as avg_monthly_rent,location
+from rentals
+group by location
+order by avg_monthly_rent desc;
+
+--Find properties with rent above $2000. Show property name, monthly rent, and bedrooms, sorted by rent.
+select property_name ,monthly_rent,bedrooms 
+from rentals
+where monthly_rent &gt;= 2000
+order by monthly_rent;
+
+
+---Show all 2-bedroom properties. Display property name, location, monthly rent, and whether they're furnished.
+SELECT property_name,location,monthly_rent
+from rentals
+where bedrooms &gt;= 2 and furnished = 'Yes';
+
+--Calculate the total monthly income if ALL properties were rented out.
+SELECT  sum(monthly_rent) as total_monthly_rent_not_available
+FROM rentals
+WHERE available = 'No';
+
+--Show the highest monthly rent in each location.
+select max(monthly_rent) as highest_rent,location
+from rentals;
+
+--Show all tenant names along with their property name and monthly rent. (Hint: You'll need to JOIN the two tables)
+SELECT
+    t.name,
+    r.property_name,
+    r.monthly_rent
+FROM rentals r
+JOIN tenants t
+    ON t.rental_id = r.rental_id;
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
