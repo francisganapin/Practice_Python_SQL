@@ -2,21 +2,22 @@
 
 ## Database Schema Overview
 
-| Table | Description |
-|-------|-------------|
-| `employees` | Employee info with salary, department, and manager |
-| `departments` | Department names, locations, and budgets |
-| `products` | Product catalog with prices and stock |
-| `suppliers` | Supplier contact information |
-| `customers` | Customer details and registration dates |
-| `orders` | Order header with status and totals |
-| `order_items` | Individual items within each order |
+| Table           | Description                                        |
+| --------------- | -------------------------------------------------- |
+| `employees`   | Employee info with salary, department, and manager |
+| `departments` | Department names, locations, and budgets           |
+| `products`    | Product catalog with prices and stock              |
+| `suppliers`   | Supplier contact information                       |
+| `customers`   | Customer details and registration dates            |
+| `orders`      | Order header with status and totals                |
+| `order_items` | Individual items within each order                 |
 
 ---
 
 ## 🟢 EASY (Problems 1-5)
 
 ### Problem 1: Basic SELECT
+
 **Task:** Retrieve all columns from the `employees` table.
 
 <details>
@@ -30,11 +31,13 @@ Use SELECT * to get all columns
 ```sql
 SELECT * FROM employees;
 ```
+
 </details>
 
 ---
 
 ### Problem 2: Filtering with WHERE
+
 **Task:** Find all products in the 'Electronics' category.
 
 <details>
@@ -49,11 +52,13 @@ Use WHERE to filter by category column
 SELECT * FROM products
 WHERE category = 'Electronics';
 ```
+
 </details>
 
 ---
 
 ### Problem 3: Sorting Results
+
 **Task:** List all employees ordered by salary from highest to lowest.
 
 <details>
@@ -69,11 +74,13 @@ SELECT first_name, last_name, salary
 FROM employees
 ORDER BY salary DESC;
 ```
+
 </details>
 
 ---
 
 ### Problem 4: Using LIKE Pattern
+
 **Task:** Find all customers whose email contains 'email.com'.
 
 <details>
@@ -88,11 +95,13 @@ Use LIKE with % wildcards
 SELECT * FROM customers
 WHERE email LIKE '%email.com%';
 ```
+
 </details>
 
 ---
 
 ### Problem 5: COUNT and Basic Aggregation
+
 **Task:** Count how many employees work in each department.
 
 <details>
@@ -108,6 +117,7 @@ SELECT department_id, COUNT(*) as employee_count
 FROM employees
 GROUP BY department_id;
 ```
+
 </details>
 
 ---
@@ -115,6 +125,7 @@ GROUP BY department_id;
 ## 🟡 MEDIUM (Problems 6-10)
 
 ### Problem 6: INNER JOIN
+
 **Task:** List all employees with their department names.
 
 <details>
@@ -130,11 +141,13 @@ SELECT e.first_name, e.last_name, d.department_name
 FROM employees e
 INNER JOIN departments d ON e.department_id = d.department_id;
 ```
+
 </details>
 
 ---
 
 ### Problem 7: Multiple Aggregations
+
 **Task:** Find the minimum, maximum, and average salary for each department.
 
 <details>
@@ -155,11 +168,13 @@ FROM employees e
 JOIN departments d ON e.department_id = d.department_id
 GROUP BY d.department_name;
 ```
+
 </details>
 
 ---
 
 ### Problem 8: HAVING Clause
+
 **Task:** Find categories with more than 3 products.
 
 <details>
@@ -176,11 +191,13 @@ FROM products
 GROUP BY category
 HAVING COUNT(*) > 3;
 ```
+
 </details>
 
 ---
 
 ### Problem 9: Subquery in WHERE
+
 **Task:** Find all employees who earn more than the company average salary.
 
 <details>
@@ -196,11 +213,13 @@ SELECT first_name, last_name, salary
 FROM employees
 WHERE salary > (SELECT AVG(salary) FROM employees);
 ```
+
 </details>
 
 ---
 
 ### Problem 10: LEFT JOIN
+
 **Task:** List all departments and count of employees (including departments with no employees).
 
 <details>
@@ -219,6 +238,7 @@ FROM departments d
 LEFT JOIN employees e ON d.department_id = e.department_id
 GROUP BY d.department_name;
 ```
+
 </details>
 
 ---
@@ -226,6 +246,7 @@ GROUP BY d.department_name;
 ## 🔴 CHALLENGING (Problems 11-15)
 
 ### Problem 11: Multiple JOINs
+
 **Task:** List all orders with customer name, employee name who processed it, and total amount.
 
 <details>
@@ -248,11 +269,13 @@ JOIN customers c ON o.customer_id = c.customer_id
 JOIN employees e ON o.employee_id = e.employee_id
 ORDER BY o.order_date;
 ```
+
 </details>
 
 ---
 
 ### Problem 12: Complex Aggregation with JOINs
+
 **Task:** Find the total revenue generated per product (quantity × unit_price from order_items).
 
 <details>
@@ -272,11 +295,13 @@ JOIN order_items oi ON p.product_id = oi.product_id
 GROUP BY p.product_name
 ORDER BY total_revenue DESC;
 ```
+
 </details>
 
 ---
 
 ### Problem 13: Correlated Subquery
+
 **Task:** Find employees who earn more than the average salary in their own department.
 
 <details>
@@ -296,11 +321,13 @@ WHERE e1.salary > (
     WHERE e2.department_id = e1.department_id
 );
 ```
+
 </details>
 
 ---
 
 ### Problem 14: CASE Statement
+
 **Task:** Categorize products by stock level: 'Low' (< 50), 'Medium' (50-100), 'High' (> 100).
 
 <details>
@@ -323,11 +350,13 @@ SELECT
 FROM products
 ORDER BY stock_quantity;
 ```
+
 </details>
 
 ---
 
 ### Problem 15: Complex Report Query
+
 **Task:** Create a sales report showing each employee's name, department, total orders processed, and total sales amount. Only include employees who have processed at least 1 order.
 
 <details>
@@ -351,6 +380,7 @@ GROUP BY e.employee_id, e.first_name, e.last_name, d.department_name
 HAVING COUNT(o.order_id) >= 1
 ORDER BY total_sales DESC;
 ```
+
 </details>
 
 ---
@@ -372,6 +402,7 @@ GROUP BY p.product_name
 ORDER BY total_sold DESC
 LIMIT 3;
 ```
+
 </details>
 
 ---
