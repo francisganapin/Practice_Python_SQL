@@ -1,0 +1,161 @@
+# 🛒 E-commerce SQL Practice Problems
+
+## Database Overview
+
+Before solving these problems, run `create_ecommerce_db.py` to create the database.
+
+### Tables:
+- **categories**: category_id, category_name, description
+- **products**: product_id, product_name, category_id, price, stock_quantity, created_at
+- **customers**: customer_id, first_name, last_name, email, city, country, registration_date
+- **orders**: order_id, customer_id, order_date, status, total_amount
+- **order_items**: item_id, order_id, product_id, quantity, unit_price
+- **reviews**: review_id, product_id, customer_id, rating, review_text, review_date
+
+---
+
+## 📝 Problems
+
+### Problem 1: Basic SELECT
+**Difficulty: Easy**
+
+Retrieve all product names and their prices from the `products` table, sorted by price from highest to lowest.
+
+---
+
+### Problem 2: Filtering with WHERE
+**Difficulty: Easy**
+
+Find all customers who are from the USA.
+
+---
+
+### Problem 3: LIKE Operator
+**Difficulty: Easy**
+
+Find all products that have the word "Pro" anywhere in their name.
+
+---
+
+### Problem 4: Aggregate Functions (COUNT)
+**Difficulty: Easy**
+
+Count the total number of orders in the database.
+
+---
+
+### Problem 5: Aggregate Functions (SUM & AVG)
+**Difficulty: Easy**
+
+Calculate the total revenue (sum of total_amount) and average order value from all orders that have been delivered.
+
+---
+
+### Problem 6: GROUP BY
+**Difficulty: Medium**
+
+Count how many products exist in each category. Display the category name and the count, sorted by count in descending order.
+
+---
+
+### Problem 7: HAVING Clause
+**Difficulty: Medium**
+
+Find all customers who have placed more than 2 orders. Display the customer's full name and their order count.
+
+---
+
+### Problem 8: JOIN Operations
+**Difficulty: Medium**
+
+List all orders with the customer's full name, order date, and order status. Sort by order date (most recent first).
+
+---
+
+### Problem 9: Multiple JOINs
+**Difficulty: Medium**
+
+Display all order items with the product name, quantity ordered, and the customer's email who placed the order.
+
+---
+
+### Problem 10: LEFT JOIN
+**Difficulty: Medium**
+
+Find all products that have never been ordered. Display the product name and category name.
+
+---
+
+### Problem 11: Subqueries
+**Difficulty: Medium**
+
+Find all products that have a price higher than the average price of all products.
+
+---
+
+### Problem 12: Correlated Subquery
+**Difficulty: Hard**
+
+For each category, find the most expensive product. Display the category name, product name, and price.
+
+---
+
+### Problem 13: CASE Statement
+**Difficulty: Medium**
+
+Categorize all products based on their stock level:
+- 'Low Stock' if stock_quantity < 50
+- 'Medium Stock' if stock_quantity between 50 and 150
+- 'High Stock' if stock_quantity > 150
+
+Display product name, stock quantity, and the stock status.
+
+---
+
+### Problem 14: Date Functions
+**Difficulty: Medium**
+
+Find all orders placed in January 2024. Display the order ID, customer full name, order date, and total amount.
+
+---
+
+### Problem 15: Complex Analysis
+**Difficulty: Hard**
+
+Create a customer analysis that shows:
+- Customer full name
+- Total number of orders they placed
+- Total amount spent
+- Average rating they gave in reviews
+- Only include customers who have placed at least 1 order
+
+Sort by total amount spent (descending).
+
+---
+
+## 💡 Tips for Practice
+
+1. Run each query in a SQLite client or using Python
+2. Start with simpler problems before attempting harder ones
+3. Use `EXPLAIN QUERY PLAN` to understand how your queries execute
+4. Practice writing the same query in different ways
+
+## 🔗 How to Connect to the Database
+
+```python
+import sqlite3
+
+conn = sqlite3.connect('ecommerce.db')
+cursor = conn.cursor()
+
+# Run your query
+cursor.execute("YOUR SQL QUERY HERE")
+results = cursor.fetchall()
+
+for row in results:
+    print(row)
+
+conn.close()
+```
+
+Good luck! 🚀

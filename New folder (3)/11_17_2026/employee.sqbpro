@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\francis\OneDrive\Desktop\Practice\Practice_python\11_17_2026\employee.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1521"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainemployees"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="departments" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="74"/><column index="3" value="75"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="employee_projects" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="89"/><column index="2" value="74"/><column index="3" value="71"/><column index="4" value="101"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="employees" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="128"/><column index="3" value="215"/><column index="4" value="73"/><column index="5" value="74"/><column index="6" value="56"/><column index="7" value="104"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="projects" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="131"/><column index="3" value="79"/><column index="4" value="73"/><column index="5" value="54"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT * FROM employees WHERE salary &gt; 50000;
+SELECT * FROM departments;
+
+
+--Search Joe
+SELECT * FROM employees WHERE name LIKE 'j%';
+
+-- connect employee to department
+SELECT *
+FROM employees e
+JOIN departments d
+  ON d.id = e.department_id;
+  
+-- 
+SELECT * FROM employees ORDER BY salary DESC;
+
+--Limit the number of records returned
+SELECT * FROM employees LIMIT 10;
+
+
+--Insert new Record
+INSERT INTO employees (name,salary,email,hire_date,job_title,salary) VALUES('Alice Magatong',600000,
+'Alice_Magatong@gmail.com','2019-10-1','Analyst',1924000);
+
+--update employees
+UPDATE employees SET salary = 650000 WHERE id =1;
+
+SELECT COUNT(*) FROM employees;
+
+SELECT AVG(salary) FROM employees;
+
+SELECT department_id, COUNT(*) from employees e
+JOIN departments d
+	on d.id = e.department_id
+ GROUP BY department_id;
+ 
+ 
+SELECT employees.name,departments.name
+from employees
+JOIN department 
+	ON employees.department_id = departments.id;</sql><current_tab id="0"/></tab_sql></sqlb_project>
